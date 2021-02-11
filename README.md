@@ -13,24 +13,22 @@
 + `console.log()` - Let's take a look at the second `describe` function call
   inside of `test/indexTest.js`. Here, you can see that the tests inside of here
   are asking for a few things. Let's take them in turn.
-  * If you look at the first `it` function call, the tests ask that `invokes
+  * If you look at the first `it` function call, you'll see: `invokes
     console.log() with the string "this code was called"`. Then, the next line
-    says `spy` to be `calledWithExactly` the string `this code was called`. To
-    pass this test, we can write `console.log('this code was called')` inside of
-    our `index.js` file. Yes, I know we are a little confused. What is a spy?
+    says `spy` should be `calledWithExactly` the string `this code was called`.
+    To pass this test, we can write `console.log('this code was called')` inside
+    of our `index.js` file. Yes, I know we are a little confused. What is a spy?
     It's ok if you walk away from the course not fully knowing. Just understand
     that this `spy` thing helps us test that `console.log` is called, and what
     the arguments are. So whenever you see `expect(spy.calledWithExactly('this
     code was called')).to.be.true` what we really mean is that we expect
     `console.log` to be called with the argument `this code was called`. For
     more details on what the `spy` is doing, see our "note about spies" below.
-  * In the second to last `it` function call in `test/indexTest.js` we test that
-    `console.log` is called with our `driver` variable. This is a task you may
-    find yourself doing a lot. Using `console.log` to see the value of a
-    variable. If you pass the `variable` driver to `console.log` your test
-    should be passing. More to the point, if you open up your browser's console
-    (by pressing cmd+shift+c on a Mac, ctrl+shift+j on chrome on a PC), you can
-    see your corresponding data logged.
+  * In the second to last `it` function call in `test/indexTest.js`, we test
+    that `console.log` is called with our `driver` variable. This is a task you
+    may find yourself doing a lot: using `console.log` to see the value of a
+    variable. If you pass the variable `driver` to `console.log`, this test
+    should be passing.
   * In the final `it` function call in this lab, the test asks you to practice
     passing multiple arguments to `console.log`. The first argument is the
     `driver` variable, and the second argument should be the string `is the
@@ -48,13 +46,13 @@ code `describe('console.log', function () { ...`, you can see the code `spy =
 sinon.spy(console, 'log');`. This asks our tests to watch the `console.log`
 function. Later on in an `it` block, we can ensure that `console.log` is called,
 and can see what arguments it is called with. We are using the `spy` because
-there really is no other great way to test the use of `console.log`. The
-function returns `undefined` after all, so we can't really check the return
-value of your code, and `console.log` affects your browser's console, which
-humans can read easily, but computers can't. So we just test to make sure you
-made use of this function using a spy. If this was confusing to you, it is not a
-core JavaScript topic nor is it a prerequisite to learning more with JavaScript,
-so you can happily move ahead.
+there really is no other great way to test the use of `console.log()`. Because the
+return value of the `console.log()` method is `undefined`, we can't really check
+the return value of your code. Furthermore, `console.log` affects your browser's
+console, which humans can read easily, but computers can't. So we just test to
+make sure you made use of this function using a spy. If this was confusing to
+you, it is not a core JavaScript topic nor is it a prerequisite to learning more
+with JavaScript, so you can happily move ahead.
 
 ## Resources
 
